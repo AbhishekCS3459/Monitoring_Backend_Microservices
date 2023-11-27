@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  prom-server:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus-config.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana-oss
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./grafana-config.ini:/etc/grafana/provisioning/datasources/grafana-config.ini
+    networks:
+      - monitoring
+  redis-stack:
+    image: redis/redis-stack:latest
+    ports:
+      - "6379:6379"
+      - "8001:8001"
+    restart: always
+    networks:
+      - monitoring
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      
+networks:
+  monitoring:
+
+volumes:
+  grafana-storage: {}
+
+  
