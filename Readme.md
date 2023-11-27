@@ -16,6 +16,11 @@ Develop a log ingestor system that can efficiently handle vast volumes of log da
 
 ![MONOTORING_SERVICE](https://github.com/AbhishekCS3459/Monitoring-Backend-Microservices/assets/94506000/f9e36348-ecbc-49db-9a33-78e336f10c1b)
 
+
+### Inserting data to datbase using Redis as PUB-SUB
+![image](https://github.com/AbhishekCS3459/Monitoring-Backend-Microservices/assets/94506000/c9d7dd1f-9367-43ca-8485-54c9a0d2d8d7)
+
+
 ###### Sample Log Data Format:
 
 ### The logs to be ingested will be sent in this format
